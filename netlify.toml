@@ -6,8 +6,6 @@
   package = "@netlify/plugin-functions-core"
 
 # Konfigurasi serverless functions
-[functions]
-  # Definisi serverless function pertama
-  [[functions]]
+[[functions]]
   path = "/api/*"  # Semua endpoint API
   command = "node server.js"  # Perintah untuk menjalankan server.js
