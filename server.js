@@ -6,7 +6,7 @@ import knights from 'knights-canvas';
 import axios from 'axios';
 import cheerio from 'cheerio';
 import path from 'path';
-import { default as got } from 'got';
+import got from 'got';
 import { fileURLToPath } from 'url';
 import fetch from 'node-fetch'; 
 
