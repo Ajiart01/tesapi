@@ -1,15 +1,15 @@
 {
-  "name": "restapi",
+  "name": "nodejs",
   "version": "1.0.0",
-  "description": "A Node.js project using various modules",
+  "description": "Proyek Node.js menggunakan berbagai modul",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["nodejs", "express", "api"],
-  "author": "bgsbot",
+  "author": "Nama Anda",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.0.6",
