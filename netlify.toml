@@ -1,0 +1,11 @@
+[build]
+  base = "/"
+  publish = "public/" 
+
+[[plugins]]
+  package = "@netlify/plugin-functions-core"
+
+
+[[functions]]
+  path = "/api/*" 
+  command = "node server.js"  
