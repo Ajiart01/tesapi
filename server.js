@@ -22,7 +22,12 @@ router.use(express.static('public')); // Menghubungkan folder statis
 
 // Endpoint untuk halaman dokumentasi
 router.get('/docs', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html')); // Ganti dengan path file HTML Anda
+  try {
+    res.sendFile(path.join(__dirname, 'public', 'index.html')); // Ganti dengan path file HTML Anda
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 router.get('/muslim/quran', async (req, res, next) => {
@@ -54,6 +59,8 @@ router.get('/api/download/instagram', async (req, res) => {
   const { url } = req.query;
 
   try {
+    if (!url) throw new Error('URL tidak boleh kosong');
+
     const data = await igdl(url);
     const response = {
       result: {
@@ -65,7 +72,7 @@ router.get('/api/download/instagram', async (req, res) => {
     };
     res.json(response);
   } catch (error) {
-    console.error('Gagal mengunduh dari Instagram:', error);
+    console.error('Gagal mengunduh dari Instagram:', error.message);
     res.status(500).json({ error: 'Gagal mengunduh dari Instagram' });
   }
 });
@@ -127,10 +134,12 @@ router.get('/api/download/youtube', async (req, res) => {
   const { url } = req.query;
 
   try {
+    if (!url) throw new Error('URL tidak boleh kosong');
+
     const data = await youtube(url);
     res.json(data);
   } catch (error) {
-    console.error('Gagal mengunduh dari YouTube:', error);
+    console.error('Gagal mengunduh dari YouTube:', error.message);
     res.status(500).json({ error: 'Gagal mengunduh dari YouTube' });
   }
 });
@@ -193,62 +202,87 @@ router.get('/api/goodbye', async (req, res) => {
   }
 });
 
+// Menggunakan fetch untuk endpoint /maker/jail
 router.get("/maker/jail", async (req, res, next) => {
   const image = req.query.image;
-  if (!image) return res.json("Masukan Url gambar nya");
+  if (!image) return res.json("Masukan URL gambar nya");
+
   try {
-    const response = await axios.get(`https://api.popcat.xyz/jail?image=${image}`, {
-      responseType: 'arraybuffer'
-    });
+    const response = await fetch(`https://api.popcat.xyz/jail?image=${image}`);
+    if (!response.ok) {
+      throw new Error('Gagal mengambil data dari server');
+    }
+    
+    const buffer = await response.arrayBuffer();
     res.set({ 'Content-Type': 'image/png' });
-    res.send(response.data);
+    res.send(Buffer.from(buffer));
   } catch (error) {
     next(error);
   }
 });
 
+// Menggunakan fetch untuk endpoint /maker/wanted
 router.get("/maker/wanted", async (req, res, next) => {
   const image = req.query.image;
-  if (!image) return res.json("Masukan Url gambar nya");
+  if (!image) return res.json("Masukan URL gambar nya");
+
   try {
-    const response = await axios.get(`https://api.popcat.xyz/wanted?image=${image}`, {
-      responseType: 'arraybuffer'
-    });
+    const response = await fetch(`https://api.popcat.xyz/wanted?image=${image}`);
+    if (!response.ok) {
+      throw new Error('Gagal mengambil data dari server');
+    }
+
+    const buffer = await response.arrayBuffer();
     res.set({ 'Content-Type': 'image/png' });
-    res.send(response.data);
+    res.send(Buffer.from(buffer));
   } catch (error) {
     next(error);
   }
 });
 
+// Menggunakan fetch untuk endpoint /maker/ship
 router.get("/maker/ship", async (req, res, next) => {
   const { image1, image2 } = req.query;
   if (!image1) return res.json(loghandler.noturl1);
   if (!image2) return res.json(loghandler.noturl2);
+
   try {
-    const response = await axios.get(`https://api.popcat.xyz/ship?user1=${image1}&user2=${image2}`, {
-      responseType: 'arraybuffer'
-    });
+    const response = await fetch(`https://api.popcat.xyz/ship?user1=${image1}&user2=${image2}`);
+    if (!response.ok) {
+      throw new Error('Gagal mengambil data dari server');
+    }
+
+    const buffer = await response.arrayBuffer();
     res.set({ 'Content-Type': 'image/png' });
-    res.send(response.data);
+    res.send(Buffer.from(buffer));
   } catch (error) {
     next(error);
   }
 });
 
+// Menggunakan fetch untuk endpoint /maker/google-suggestion
 router.get('/maker/google-suggestion', async (req, res, next) => {
   const text = req.query.text;
   if (!text) return res.json(loghandler.nottext);
 
   try {
-    const response = await axios.get(`https://api.popcat.xyz/search?q=${text}`, {
-      responseType: 'arraybuffer'
-    });
+    const response = await fetch(`https://api.popcat.xyz/search?q=${text}`);
+    if (!response.ok) {
+      throw new Error('Gagal mengambil data dari server');
+    }
+
+    const buffer = await response.arrayBuffer();
     res.set({ 'Content-Type': 'image/png' });
-    res.send(response.data);
+    res.send(Buffer.from(buffer));
   } catch (error) {
     next(error);
   }
+});
+
+
+router.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 // Server listener
