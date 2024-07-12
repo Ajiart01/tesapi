@@ -16,9 +16,11 @@
     "body-parser": "^1.20.2",
     "btch-downloader": "^2.3.2",
     "express": "^4.19.2",
-     "cheerio": "^1.0.0-rc.12",
+    "cheerio": "^1.0.0-rc.12",
     "fs": "^0.0.1-security",
+    "got": "*",
     "knights-canvas": "^1.3.7-a",
     "nodemon": "^3.1.4"
-  }
+  },
+  "type": "module"
 }
