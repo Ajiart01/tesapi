@@ -5,6 +5,7 @@ const { igdl, ttdl, fbdown, twitter, youtube } = require('btch-downloader');
 const knights = require('knights-canvas');
 const axios = require('axios')
 const router = express();
+const cheerio = require('cheerio')
 const PORT = process.env.PORT || 3000;
 
 // Middleware
