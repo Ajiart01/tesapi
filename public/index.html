@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloader Documentation</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="content">
+    <div class="container-fluid p-0">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="h3 mb-3">Documentation List</h1>
+          </div>
+          <div class="table-responsive">
+            <table id="documentationTable" class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="#" onclick="showDownloader(); return false;">Downloader</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="showMaker(); return false;">Maker</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="showTools(); return false;">Tools</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="showInformasi(); return false;">Informasi</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="showAsupan(); return false;">Asupan</a></td>
+                </tr>
+                <tr>
+                  <td><a href="#" onclick="showIslami(); return false;">Islami</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Downloader Section -->
+    <div id="downloaderSection" class="container-fluid p-0 mt-4 hidden">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="h3 mb-3">Downloader Documentation</h1>
+          </div>
+          <div class="table-responsive">
+            <table id="downloaderTable" class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Fitur Name</th>
+                  <th>Request Method</th>
+                  <th>Description</th>
+                  <th>Query Parameter</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Isi dengan fitur-fitur Downloader -->
+                            <tr>                                         
+                  <td>Instagram</td>
+                  <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+                  <td>Instagram Video</td>
+                  <td>url</td>
+                  <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+                  <td><a target="_blank" href="/api/download/instagram?url=https://www.instagram.com/reel/CqeU7dDOioO/?utm_source=ig_web_copy_link" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Download</a></td>
+                </tr>
+                <tr>
+                  <td>Tiktok</td>
+                  <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+                  <td>Tiktok Video</td>
+                  <td>url</td>
+                  <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+                  <td><a target="_blank" href="/api/download/tiktok?url=https://www.tiktok.com/@farhanaditiass/video/7209659479619587354?is_from_webapp=1&sender_device=pc&web_id=7152555593969206786" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Download</a></td>
+                </tr>
+                <tr>
+                  <td>Facebook</td>
+                  <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+                  <td>Facebook Video</td>
+                  <td>url</td>
+                  <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+                  <td><a target="_blank" href="/api/download/facebook?url=https://www.facebook.com/Dream.of.the.Lantern/videos/458233859661012/" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Download</a></td>
+       
+                <tr>
+                  <td>Twitter</td>
+                  <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+                  <td>Twitter Video</td>
+                  <td>url</td>
+                  <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+                  <td><a target="_blank" href="/api/download/twitter?url=https://twitter.com/DellaArifah/status/1645431677878149127?s=20/" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Download</a></td>
+                </tr>
+                <tr>
+                  <td>YouTube</td>
+                  <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+                  <td>YouTube Video</td>
+                  <td>url</td>
+                  <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+                  <td><a target="_blank" href="/api/download/youtube?url=https://youtu.be/jRrg3iO6HoY" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Download</a></td>
+                </tr>
+                <!-- Tambahkan fitur-fitur lainnya di sini -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Downloader Section -->
+
+ <!-- Maker Section -->
+<div id="makerSection" class="container-fluid p-0 mt-4 hidden">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="h3 mb-3">Maker Documentation</h1>
+      </div>
+      <div class="table-responsive">
+        <table id="makerTable" class="table mb-0">
+          <thead>
+            <tr>
+              <th>Fitur Name</th>
+              <th>Request Method</th>
+              <th>Description</th>
+              <th>Query Parameter</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jail Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Jail an Image</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/jail?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Wanted Poster</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Create a Wanted Poster</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/wanted?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Ship Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Create a Ship Image</td>
+              <td>user1, user2</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/ship?user1=https://example.com/user1.jpg&user2=https://example.com/user2.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Tweet Biden</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Create a Tweet with Biden</td>
+              <td>text</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/tweetbiden?text=Hello%20World" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Drip Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Add Drip Effect to Image</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/drip?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Clown Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Add Clown Effect to Image</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/clown?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Uncover Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Uncover Hidden Image</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/uncover?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Ads Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Add Ads Effect to Image</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/ads?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Blur Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Blur Image Effect</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/blur?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Invert Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Invert Colors of Image</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/invert?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Greyscale Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Convert Image to Greyscale</td>
+              <td>image</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/greyscale?image=https://example.com/image.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Who Would Win Image</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Compare Two Images</td>
+              <td>image1, image2</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/whowin?image1=https://example.com/image1.jpg&image2=https://example.com/image2.jpg" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <tr>
+              <td>Screenshot</td>
+              <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+              <td>Take a Screenshot of URL</td>
+              <td>url</td>
+              <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+              <td><a href="/maker/screenshot?url=https://example.com" class="btn btn-sm-block btn-primary" rel="nofollow"><i class="mdi mdi-arrow-top-right"></i> Create</a></td>
+            </tr>
+
+            <!-- Tambahkan fitur-fitur lainnya di sini -->
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Maker Section -->
+
+
+    <!-- Tools Section -->
+    <div id="toolsSection" class="container-fluid p-0 mt-4 hidden">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="h3 mb-3">Tools Documentation</h1>
+          </div>
+          <div class="table-responsive">
+            <table id="toolsTable" class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Fitur Name</th>
+                  <th>Request Method</th>
+                  <th>Description</th>
+                  <th>Query Parameter</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Kosongkan atau isi dengan fitur-fitur Tools -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Tools Section -->
+
+    <!-- Informasi Section -->
+    <div id="informasiSection" class="container-fluid p-0 mt-4 hidden">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="h3 mb-3">Informasi Documentation</h1>
+          </div>
+          <div class="table-responsive">
+            <table id="informasiTable" class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Fitur Name</th>
+                  <th>Request Method</th>
+                  <th>Description</th>
+                  <th>Query Parameter</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Kosongkan atau isi dengan fitur-fitur Informasi -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Informasi Section -->
+
+    <!-- Asupan Section -->
+    <div id="asupanSection" class="container-fluid p-0 mt-4 hidden">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="h3 mb-3">Asupan Documentation</h1>
+          </div>
+          <div class="table-responsive">
+            <table id="asupanTable" class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Fitur Name</th>
+                  <th>Request Method</th>
+                  <th>Description</th>
+                  <th>Query Parameter</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Kosongkan atau isi dengan fitur-fitur Asupan -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Asupan Section -->
+
+    <!-- Islami Section -->
+    <div id="islamiSection" class="container-fluid p-0 mt-4 hidden">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="h3 mb-3">Islami Documentation</h1>
+          </div>
+          <div class="table-responsive">
+            <table id="islamiTable" class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Fitur Name</th>
+                  <th>Request Method</th>
+                  <th>Description</th>
+                  <th>Query Parameter</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Kosongkan atau isi dengan fitur-fitur Islami -->
+                <tr>
+  <td>Quran</td>
+  <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+  <td>Quran Surah dan Ayat</td>
+  <td>surah, ayat</td>
+  <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+  <td>
+    <a target="_blank" href="/muslim/quran?surah=1&ayat=1" class="btn btn-sm-block btn-primary" rel="nofollow">
+      <i class="mdi mdi-arrow-top-right"></i> Fetch
+    </a>
+  </td>
+</tr>
+
+                         <tr>
+  <td>tahlil</td>
+  <td><div class="btn btn-rounded btn-outline-info">GET</div></td>
+  <td>Doa tahlil</td>
+  <td>ayat</td>
+  <td><div class="btn btn-sm-rounded btn-outline-success">Active</div></td>
+  <td>
+    <a target="_blank" href="/muslim/tahlil" class="btn btn-sm-block btn-primary" rel="nofollow">
+      <i class="mdi mdi-arrow-top-right"></i> Fetch
+    </a>
+  </td>
+</tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Islami Section -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="footer-wrap pd-20 mb-20 card-box">
+        Copyright © <script>document.write(new Date().getFullYear());</script>
+        <a href="https://bgsbot.my.id" target="_blank">bgs bot</a>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Back To Top -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- End Back To Top -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // JavaScript untuk menampilkan dan menyembunyikan bagian berdasarkan klik
+    function showDownloader() {
+      hideAllSections();
+      document.getElementById('downloaderSection').classList.remove('hidden');
+    }
+
+    function showMaker() {
+      hideAllSections();
+      document.getElementById('makerSection').classList.remove('hidden');
+    }
+
+    function showTools() {
+      hideAllSections();
+      document.getElementById('toolsSection').classList.remove('hidden');
+    }
+
+    function showInformasi() {
+      hideAllSections();
+      document.getElementById('informasiSection').classList.remove('hidden');
+    }
+
+    function showAsupan() {
+      hideAllSections();
+      document.getElementById('asupanSection').classList.remove('hidden');
+    }
+
+    function showIslami() {
+      hideAllSections();
+      document.getElementById('islamiSection').classList.remove('hidden');
+    }
+
+    function hideAllSections() {
+      document.getElementById('downloaderSection').classList.add('hidden');
+      document.getElementById('makerSection').classList.add('hidden');
+      document.getElementById('toolsSection').classList.add('hidden');
+      document.getElementById('informasiSection').classList.add('hidden');
+      document.getElementById('asupanSection').classList.add('hidden');
+      document.getElementById('islamiSection').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
