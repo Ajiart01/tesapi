@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { promises as fs } from 'fs';
 //import { igdl, ttdl, fbdown, twitter, youtube } from 'btch-downloader';
 import knights from 'knights-canvas';
 import axios from 'axios';
@@ -12,7 +11,7 @@ import fetch from 'node-fetch';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+const fsPromises = fs.promises;
 const router = express();
 const PORT = process.env.PORT || 3000;
 
@@ -156,14 +155,17 @@ router.get('/api/welcome', async (req, res) => {
       .setBackground(bgurl || "https://i.ibb.co/4YBNyvP/images-76.jpg")
       .toAttachment();
 
-    const filePath = path.join(__dirname, 'tmp', 'welcome.png');
-    await fs.writeFile(filePath, welcomeCard.toBuffer());
+    const tmpDir = path.join(__dirname, 'tmp');
+    await fsPromises.mkdir(tmpDir, { recursive: true }); // Ensure tmp directory exists
+
+    const filePath = path.join(tmpDir, 'welcome.png');
+    await fsPromises.writeFile(filePath, welcomeCard.toBuffer());
 
     res.sendFile(filePath);
 
     await new Promise(resolve => setTimeout(resolve, 3000));
 
-    await fs.unlink(filePath);
+    await fsPromises.unlink(filePath);
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -188,20 +190,22 @@ router.get('/api/goodbye', async (req, res) => {
       .setBackground(bgurl || "https://i.ibb.co/G5mJZxs/rin.jpg")
       .toAttachment();
 
-    const filePath = path.join(__dirname, 'tmp', 'goodbye.png');
-    await fs.writeFile(filePath, goodbyeCard.toBuffer());
+    const tmpDir = path.join(__dirname, 'tmp');
+    await fsPromises.mkdir(tmpDir, { recursive: true }); // Ensure tmp directory exists
+
+    const filePath = path.join(tmpDir, 'goodbye.png');
+    await fsPromises.writeFile(filePath, goodbyeCard.toBuffer());
 
     res.sendFile(filePath);
 
     await new Promise(resolve => setTimeout(resolve, 3000));
 
-    await fs.unlink(filePath);
+    await fsPromises.unlink(filePath);
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 // Menggunakan fetch untuk endpoint /maker/jail
 router.get("/maker/jail", async (req, res, next) => {
   const image = req.query.image;
