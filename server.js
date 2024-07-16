@@ -156,17 +156,9 @@ router.get('/api/welcome', async (req, res) => {
       .setBackground(bgurl || "https://i.ibb.co/4YBNyvP/images-76.jpg")
       .toAttachment();
 
-    const tmpDir = path.join(__dirname, 'tmp');
-    await fsPromises.mkdir(tmpDir, { recursive: true }); // Ensure tmp directory exists
-
-    const filePath = path.join(tmpDir, 'welcome.png');
-    await fsPromises.writeFile(filePath, welcomeCard.toBuffer());
-
-    res.sendFile(filePath);
-
-    await new Promise(resolve => setTimeout(resolve, 3000));
-
-    await fsPromises.unlink(filePath);
+    // Instead of saving to filesystem, send as response directly
+    res.set('Content-Type', 'image/png');
+    res.send(await welcomeCard.toBuffer());
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -191,17 +183,9 @@ router.get('/api/goodbye', async (req, res) => {
       .setBackground(bgurl || "https://i.ibb.co/G5mJZxs/rin.jpg")
       .toAttachment();
 
-    const tmpDir = path.join(__dirname, 'tmp');
-    await fsPromises.mkdir(tmpDir, { recursive: true }); // Ensure tmp directory exists
-
-    const filePath = path.join(tmpDir, 'goodbye.png');
-    await fsPromises.writeFile(filePath, goodbyeCard.toBuffer());
-
-    res.sendFile(filePath);
-
-    await new Promise(resolve => setTimeout(resolve, 3000));
-
-    await fsPromises.unlink(filePath);
+    // Instead of saving to filesystem, send as response directly
+    res.set('Content-Type', 'image/png');
+    res.send(await goodbyeCard.toBuffer());
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
