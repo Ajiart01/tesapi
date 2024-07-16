@@ -8,6 +8,7 @@ import path from 'path';
 //import got from 'got';
 import { fileURLToPath } from 'url';
 import fetch from 'node-fetch'; 
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 router.use(bodyParser.json());
-router.use(express.static('public')); // Menghubungkan folder statis
+router.use(express.static('public'));
 
 // Endpoint untuk halaman dokumentasi
 router.get('/docs', (req, res) => {
@@ -206,6 +207,7 @@ router.get('/api/goodbye', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 // Menggunakan fetch untuk endpoint /maker/jail
 router.get("/maker/jail", async (req, res, next) => {
   const image = req.query.image;
