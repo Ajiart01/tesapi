@@ -1,12 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { promises as fs } from 'fs';
-import { igdl, ttdl, fbdown, twitter, youtube } from 'btch-downloader';
+//import { igdl, ttdl, fbdown, twitter, youtube } from 'btch-downloader';
 import knights from 'knights-canvas';
 import axios from 'axios';
 import cheerio from 'cheerio';
 import path from 'path';
-import got from 'got';
+//import got from 'got';
 import { fileURLToPath } from 'url';
 import fetch from 'node-fetch'; 
 
@@ -55,7 +55,7 @@ router.get('/muslim/tahlil', async (req, res, next) => {
 });
 
 // Endpoint untuk mengunduh konten dari Instagram (GET)
-router.get('/api/download/instagram', async (req, res) => {
+/*router.get('/api/download/instagram', async (req, res) => {
   const { url } = req.query;
 
   try {
@@ -143,7 +143,7 @@ router.get('/api/download/youtube', async (req, res) => {
     res.status(500).json({ error: 'Gagal mengunduh dari YouTube' });
   }
 });
-
+*/
 router.get('/api/welcome', async (req, res) => {
   try {
     const { picurl, name, bgurl, gcname, mem } = req.query;
